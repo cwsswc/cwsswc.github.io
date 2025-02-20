@@ -1,136 +1,121 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <!-- 移动端自适应设置 [7]()[9]() -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>每日鲜 - 特价生鲜</title>
-    <style>
-        /* 基础重置与字体设置 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Microsoft YaHei', sans-serif;
-        }
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="utf-8" /> 
+    <!-- 适应手机布局，让页面宽度根据设备屏幕宽度调整 --> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" /> 
+    <meta name="description" content="Daily Special Fresh Produce" /> 
+    <meta name="author" content="Your Name" /> 
+    <title>Daily Special Fresh Produce</title> 
+    <!-- 设置网站图标 --> 
+    <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico"  /> 
+    <!-- 引入 Bootstrap 图标库，用于显示各种图标 --> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"  rel="stylesheet" /> 
+    <!-- 引入 Google 字体，为页面提供美观的字体样式 --> 
+    <link rel="preconnect" href="https://fonts.gstatic.com"  /> 
+    <!-- 具体使用的三种 Google 字体，适合在手机上阅读 --> 
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&display=swap"  rel="stylesheet" /> 
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&display=swap"  rel="stylesheet" /> 
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&display=swap"  rel="stylesheet" /> 
+    <!-- 引入自定义样式文件，用来设置页面的整体布局和外观 --> 
+    <link type="text/css" href="styles.css"  rel="stylesheet" /> 
+    <!-- Bootstrap 核心 JavaScript，支持响应式布局和一些交互效果 --> 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>  
+</head> 
+<body id="page-top"> 
+    <!-- 导航栏 --> 
+    <nav class="header navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav"> 
+        <div class="container px-5"> 
+            <!-- 导航栏标题，点击可回到页面顶部 --> 
+            <a id="page-top-title" class="navbar-brand fw-bold" href="#page-top">Daily Special Fresh</a> 
+            <!-- 导航栏切换按钮，在小屏幕上显示 --> 
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" 
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> 
+                MENU 
+                <i class="bi-list"></i> 
+            </button> 
+            <div class="collapse navbar-collapse" id="navbarResponsive"> 
+                <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0"> 
+                    <!-- 导航栏菜单项，点击可跳转到对应页面区域 --> 
+                    <li class="nav-item"> <a class="nav-link me-lg-3" href="#page-top">HOME</a> </li> 
+                    <li class="nav-item"> <a class="nav-link me-lg-3" href="#special-offers">SPECIAL OFFERS</a> </li>  
+                    <li class="nav-item"> <a class="nav-link me-lg-3" href="#contact">CONTACT</a> </li> 
+                </ul> 
+            </div> 
+        </div> 
+    </nav> 
  
-        /* 容器布局 [3]()[7]() */
-        .container {
-            max-width: 750px;
-            margin: 0 auto;
-            padding: 15px;
-            background: #f5f5f5;
-        }
+    <!-- 顶部大标题区域 --> 
+    <section class="top-section" style="background-image: url('static/assets/img/background.jpeg');">  
+        <div class="top-section-content"> 
+            <div class="container px-5"> 
+                <h1 class="text-white display-3 lh-1 font-alt">Daily Special Fresh Produce</h1> 
+            </div> 
+        </div> 
+    </section> 
  
-        /* 商品卡片设计 [6]()[8]() */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
+    <!-- 每日特价生鲜区域 --> 
+    <section class="bg-light py-5" id="special-offers"> 
+        <div class="container px-5"> 
+            <h2 class="mb-4">Today's Special Offers</h2> 
+            <!-- 商品网格布局 --> 
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4"> 
+                <!-- 商品 1 --> 
+                <div class="col"> 
+                    <div class="card h-100"> 
+                        <img src="static/assets/img/apples.jpg"  class="card-img-top" alt="Apples"> 
+                        <div class="card-body"> 
+                            <h5 class="card-title">Apples</h5> 
+                            <p class="card-text">Fresh and juicy apples from local farms.</p> 
+                            <h6 class="text-success">$2.99 / lb</h6> 
+                        </div> 
+                    </div> 
+                </div> 
+                <!-- 商品 2 --> 
+                <div class="col"> 
+                    <div class="card h-100"> 
+                        <img src="static/assets/img/bananas.jpg"  class="card-img-top" alt="Bananas"> 
+                        <div class="card-body"> 
+                            <h5 class="card-title">Bananas</h5> 
+                            <p class="card-text">Ripe and delicious bananas.</p> 
+                            <h6 class="text-success">$1.49 / lb</h6> 
+                        </div> 
+                    </div> 
+                </div> 
+                <!-- 商品 3 --> 
+                <div class="col"> 
+                    <div class="card h-100"> 
+                        <img src="static/assets/img/grapes.jpg"  class="card-img-top" alt="Grapes"> 
+                        <div class="card-body"> 
+                            <h5 class="card-title">Grapes</h5> 
+                            <p class="card-text">Sweet and crunchy grapes.</p> 
+                            <h6 class="text-success">$3.99 / lb</h6> 
+                        </div> 
+                    </div> 
+                </div> 
+            </div> 
+        </div> 
+    </section> 
  
-        .product-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
+    <!-- 联系我们区域 --> 
+    <section class="bg-gradient-primary-to-secondary-gray py-5" id="contact"> 
+        <div class="container px-5"> 
+            <h2 class="mb-4">Contact Us</h2> 
+            <p>Have questions about our daily special fresh produce? Feel free to reach out to us!</p> 
+            <a href="#" class="btn btn-primary">Contact Now</a> 
+        </div> 
+    </section> 
  
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
- 
-        .product-img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-bottom: 1px solid #eee;
-        }
- 
-        /* 价格标签样式 [1]()[8]() */
-        .price-tag {
-            padding: 12px;
-            position: relative;
-        }
- 
-        .original-price {
-            color: #999;
-            text-decoration: line-through;
-            font-size: 12px;
-        }
- 
-        .discount-price {
-            color: #e4393c;
-            font-size: 18px;
-            font-weight: bold;
-            margin: 5px 0;
-        }
- 
-        .discount-badge {
-            background: #ff4444;
-            color: white;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            position: absolute;
-            right: 10px;
-            top: -15px;
-        }
- 
-        /* 响应式适配 [3]()[7]() */
-        @media (max-width: 480px) {
-            .product-grid {
-                grid-template-columns: 1fr;
-            }
-            .product-img {
-                height: 220px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h2 style="text-align:center; margin:20px 0; color:#2c3e50;">🔥 今日特价鲜品</h2>
-        
-        <div class="product-grid">
-            <!-- 商品1 -->
-            <div class="product-card">
-                <img src="https://picsum.photos/400/300?random=1"  class="product-img" alt="澳洲牛排">
-                <div class="price-tag">
-                    <span class="discount-badge">限时5折</span>
-                    <h3>澳洲牛排</h3>
-                    <div class="original-price">¥128.00</div>
-                    <div class="discount-price">¥64.00/500g</div>
-                </div>
-            </div>
- 
-            <!-- 商品2 -->
-            <div class="product-card">
-                <img src="https://picsum.photos/400/300?random=2"  class="product-img" alt="挪威三文鱼">
-                <div class="price-tag">
-                    <span class="discount-badge">新人专享</span>
-                    <h3>挪威三文鱼</h3>
-                    <div class="original-price">¥98.00</div>
-                    <div class="discount-price">¥68.00/份</div>
-                </div>
-            </div>
- 
-            <!-- 更多商品... -->
-        </div>
-    </div>
- 
-    <!-- REM适配脚本 [9]() -->
-    <script>
-        (function() {
-            var docEl = document.documentElement; 
-            function setRem() {
-                var rem = docEl.clientWidth  / 7.5;
-                docEl.style.fontSize  = rem + 'px';
-            }
-            setRem();
-            window.addEventListener('resize',  setRem);
-        })();
-    </script>
-</body>
-</html>
+    <!-- 页脚 --> 
+    <footer class="bg-bottom text-center py-5"> 
+        <div class="container px-5"> 
+            <div class="text-white-50 small"> 
+                <div class="mb-2">&copy; 2024 Daily Special Fresh. All rights reserved.</div> 
+                <a href="https://github.com/yourusername">Github</a>  
+                <span class="mx-1">&middot;</span> 
+                <a href="https://github.com/yourusername/your-repo/blob/main/LICENSE">License</a>  
+            </div> 
+        </div> 
+    </footer> 
+</body> 
+</html> 
