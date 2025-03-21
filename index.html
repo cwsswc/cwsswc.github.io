@@ -3,117 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>特价生鲜</title>
+    <title>每日鲜 · 特价生鲜</title>
     <style>
+        :root {
+            --primary-color: #e74c3c;
+            --secondary-color: #2ecc71;
+        }
+        * {
+            box-sizing: border-box;
+        }
         body {
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
+            background: #f8f9fa;
+            line-height: 1.6;
         }
         .header {
-            background-color: #e60012;
+            background: linear-gradient(135deg, var(--primary-color), #c0392b);
             color: white;
-            text-align: center;
-            padding: 20px;
-            font-size: 24px;
+            padding: 1.5rem 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+        .header p {
+            margin: 0.5rem 0 0;
+            opacity: 0.9;
+            font-size: 0.95rem;
         }
         .container {
-            padding: 20px;
+            padding: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        .product {
-            background-color: #fff;
-            margin-bottom: 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            padding: 1rem 0;
+        }
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
             display: flex;
-            padding: 15px;
-            align-items: center;
+            flex-direction: column;
         }
-        .product img {
-            width: 80px;
-            height: 80px;
-            border-radius: 8px;
-            margin-right: 20px;
+        .product-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
         }
-        .product-info {
+        .product-image {
+            height: 200px;
+            background: #f4f4f4;
+            position: relative;
+            overflow: hidden;
+        }
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .product-image:hover img {
+            transform: scale(1.05);
+        }
+        .product-content {
+            padding: 1.2rem;
             flex: 1;
         }
-        .product-name {
-            font-size: 18px;
-            font-weight: bold;
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: 600;
             color: #333;
-            margin-bottom: 5px;
+            margin-bottom: 0.5rem;
         }
-        .product-price {
-            font-size: 20px;
-            color: #e60012;
-            font-weight: bold;
+        .product-origin {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
         }
-        .product-old-price {
-            font-size: 14px;
-            text-decoration: line-through;
+        .price-container {
+            display: flex;
+            align-items: baseline;
+            margin-top: auto;
+        }
+        .current-price {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        .original-price {
+            font-size: 0.9rem;
             color: #999;
-            margin-left: 10px;
+            text-decoration: line-through;
+            margin-left: 0.8rem;
+        }
+        .badge {
+            background: var(--secondary-color);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
         }
         .footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #e60012;
+            background: #34495e;
             color: white;
-            font-size: 16px;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .product-image {
+                height: 160px;
+            }
+            .product-title {
+                font-size: 1.1rem;
+            }
+            .current-price {
+                font-size: 1.2rem;
+            }
+            .header h1 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
-
-    <div class="header">
-        <h1>特价生鲜</h1>
-        <p>快来选购，限时优惠！</p>
-    </div>
-
-    <div class="container">
-        <!-- 商品 1 -->
-        <div class="product">
-            <img src="static/assets/img/xigua.png" alt="商品1">
-            <div class="product-info">
-                <div class="product-name">新鲜苹果</div>
-                <div class="product-price">¥9.99 <span class="product-old-price">¥15.00</span></div>
-            </div>
+    <header class="header">
+        <div class="container">
+            <h1>🍎 每日鲜特卖</h1>
+            <p>⏰ 每日凌晨新鲜直达，限时特惠</p>
         </div>
+    </header>
 
-        <!-- 商品 2 -->
-        <div class="product">
-            <img src="static/assets/img/xigua.png" alt="商品2">
-            <div class="product-info">
-                <div class="product-name">有机西红柿</div>
-                <div class="product-price">¥5.99 <span class="product-old-price">¥8.00</span></div>
-            </div>
+    <main class="container">
+        <div class="product-grid">
+            <!-- 商品 1 -->
+            <article class="product-card">
+                <div class="product-image">
+                    <span class="badge">今日爆款</span>
+                    <img src="static/assets/img/apple.jpg" alt="精品苹果">
+                </div>
+                <div class="product-content">
+                    <h2 class="product-title">新疆冰糖心苹果</h2>
+                    <p class="product-origin">产地直供 · 新疆阿克苏</p>
+                    <div class="price-container">
+                        <span class="current-price">¥8.8/500g</span>
+                        <span class="original-price">¥15.8</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 商品 2 -->
+            <article class="product-card">
+                <div class="product-image">
+                    <span class="badge">有机认证</span>
+                    <img src="static/assets/img/tomato.jpg" alt="有机番茄">
+                </div>
+                <div class="product-content">
+                    <h2 class="product-title">有机樱桃番茄</h2>
+                    <p class="product-origin">自然熟成 · 山东寿光</p>
+                    <div class="price-container">
+                        <span class="current-price">¥5.9/500g</span>
+                        <span class="original-price">¥9.9</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 商品 3 -->
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="static/assets/img/watermelon.jpg" alt="宁夏西瓜">
+                </div>
+                <div class="product-content">
+                    <h2 class="product-title">宁夏沙地西瓜</h2>
+                    <p class="product-origin">沙漠种植 · 宁夏中卫</p>
+                    <div class="price-container">
+                        <span class="current-price">¥2.98/斤</span>
+                        <span class="original-price">¥4.99</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 商品 4 -->
+            <article class="product-card">
+                <div class="product-image">
+                    <span class="badge">新品尝鲜</span>
+                    <img src="static/assets/img/grape.jpg" alt="阳光葡萄">
+                </div>
+                <div class="product-content">
+                    <h2 class="product-title">阳光玫瑰葡萄</h2>
+                    <p class="product-origin">云南大理 · 晴王同源</p>
+                    <div class="price-container">
+                        <span class="current-price">¥19.9/箱</span>
+                        <span class="original-price">¥39.9</span>
+                    </div>
+                </div>
+            </article>
         </div>
+    </main>
 
-        <!-- 商品 3 -->
-        <div class="product">
-            <img src="static/assets/img/xigua.png" alt="商品3">
-            <div class="product-info">
-                <div class="product-name">新鲜鸡蛋</div>
-                <div class="product-price">¥15.00 <span class="product-old-price">¥20.00</span></div>
-            </div>
-        </div>
-
-        <!-- 商品 4 -->
-        <div class="product">
-            <img src="static/assets/img/xigua.png" alt="商品4">
-            <div class="product-info">
-                <div class="product-name">优质牛奶</div>
-                <div class="product-price">¥12.00 <span class="product-old-price">¥18.00</span></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="footer">
-        <p>立即抢购，享受超值优惠！</p>
-    </div>
-
+    <footer class="footer">
+        <p>🛒 全场满59包邮 · 🌱 48小时无理由退换 · ☎️ 400-888-1234</p>
+    </footer>
 </body>
 </html>
